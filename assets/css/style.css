@@ -1,3 +1,28 @@
 body {
-    background:lightseagreen;
+    background:lemonchiffon;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+svg {
+    margin: 30px;
+}
+
+#diagram {
+    border: solid olive 2px;
+}
+
+#rock:hover {
+    border: solid green 3px;
+}
+
+#well:hover {
+    border: solid green 3px;
+}
+
+#scissors:hover {
+    border: solid green 3px;
+}
+
+#paper:hover {
+    border: solid green 3px;
 }
