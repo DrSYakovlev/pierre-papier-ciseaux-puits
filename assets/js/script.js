@@ -1,45 +1,60 @@
-//get random reply
-let reply = ['rock', 'paper','scissors','well'];
-let gameType;
+//Declare variables:
+const reply = ['rock', 'paper','scissors','well'];
 let currentReply;
 
-document.getElementById('rock').addEventListener("click", myRock);
+//Setting up event listeners
+document.getElementById('rock').addEventListener('click', myRock);
 document.getElementById('paper').addEventListener('click', myPaper);
 document.getElementById('scissors').addEventListener('click', myScissors);
 document.getElementById('well').addEventListener('click', myWell);
 
-function randomReply() {
-    console.log(reply[(Math.floor(Math.random() * reply.length))]);
-}
-
-function selection() {
-    console.log(document.getElementById('best-of-three').checked);
-    
-}
-
+//Declare functions
 function myRock() {
-    console.log('You selected Rock');
-    console.log(randomReply());
-
+    currentReply = reply[(Math.floor(Math.random() * reply.length))];;
+    document.getElementById('reply1').innerHTML = currentReply;
+    if (currentReply === 'rock') {
+        document.getElementById('result1').innerHTML = 'DRAW';
+    } else if (currentReply === 'scissors') {
+        document.getElementById('result1').innerHTML = 'WON!';
+    } else {
+        document.getElementById('result1').innerHTML = 'lost';
+    }
 }
+
 
 function myPaper() {
-    console.log('You selected Paper');
+    currentReply = reply[(Math.floor(Math.random() * reply.length))];;
+    document.getElementById('reply2').innerHTML = currentReply;
+    if (currentReply === 'paper') {
+        document.getElementById('result2').innerHTML = 'DRAW';
+    } else if (currentReply === 'rock' || currentReply === 'well') {
+        document.getElementById('result2').innerHTML = 'WON!';
+    } else {
+        document.getElementById('result2').innerHTML = 'lost';
+    }
 }
 
 function myScissors() {
-    console.log('You selected Scissors');
+    currentReply = reply[(Math.floor(Math.random() * reply.length))];;
+    document.getElementById('reply3').innerHTML = currentReply;
+    if (currentReply === 'scissors') {
+        document.getElementById('result3').innerHTML = 'DRAW';
+    } else if (currentReply === 'paper') {
+        document.getElementById('result3').innerHTML = 'WON!';
+    } else {
+        document.getElementById('result3').innerHTML = 'lost';
+    }
 }
-
+//Under construction:
 function myWell() {
-    console.log('You selected Well');
-}
-
-gameType = selection();
-console.log(gameType);
-
-if (gameType) {
-    console.log('You are playing best-of-three game');
-} else {
-    console.log('You are playing a single-shot game');
+    currentReply = reply[(Math.floor(Math.random() * reply.length))];;
+    /*
+    document.getElementById('reply3').innerHTML = currentReply;
+    if (currentReply === 'scissors') {
+        document.getElementById('result3').innerHTML = 'DRAW';
+    } else if (currentReply === 'paper') {
+        document.getElementById('result3').innerHTML = 'WON!';
+    } else {
+        document.getElementById('result3').innerHTML = 'lost';
+    }*/
 }
