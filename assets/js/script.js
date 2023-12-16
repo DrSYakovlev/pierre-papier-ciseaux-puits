@@ -21,7 +21,6 @@ function myRock() {
     }
 }
 
-
 function myPaper() {
     currentReply = reply[(Math.floor(Math.random() * reply.length))];;
     document.getElementById('reply2').innerHTML = currentReply;
