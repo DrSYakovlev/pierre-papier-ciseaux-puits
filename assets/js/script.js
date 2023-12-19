@@ -124,12 +124,19 @@ function myWell() {
     }
     document.getElementById('well').remove();    
 }
+
 function myCount() {
     count++;    
     if (count === 3) {
-        document.getElementById('total').innerHTML = score;
-        console.log('finish');
-        console.log(score);
+        console.log('finished');        
+        if (score < 0) {
+            document.getElementById('total').innerHTML = 'You LOST';
+            document.getElementById ('total').style.color = 'red';
+        } else if (score == 0) {
+            document.getElementById('total').innerHTML = 'DRAW';
+        } else if (score > 0) {
+            document.getElementById('total').innerHTML = 'You WON';
+        }
     } else if (count > 3) {        
         location.reload();
     }
