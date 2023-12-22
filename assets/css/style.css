@@ -6,10 +6,9 @@ body {
     max-width: 720px;
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+a {
+    color: white;
+    text-decoration: none;
 }
 
 footer {
@@ -30,21 +29,15 @@ h4 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-svg {
-    padding: 20px;
-    margin: 20px;
-    border: solid olive 3px;
-    border-radius: 10px;
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav {
     background-color: darkblue;
     max-width: 720px;
-}
-
-a {
-    color: white;
-    text-decoration: none;
 }
 
 p {
@@ -55,6 +48,44 @@ p {
     text-justify: inter-word;
     font-size:x-large;
     text-shadow: 1px 1px;
+}
+
+summary {    
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+svg {
+    padding: 20px;
+    margin: 20px;
+    border: solid olive 3px;
+    border-radius: 10px;
+}
+
+svg:hover {
+    border: solid red 5px;
+}
+
+
+label, #game-length {
+    margin-left: 20px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#diagram {
+    border: solid olive 2px;
+}
+
+#game-length {
+    background-color: darkblue;
+    color: white;
+}
+
+#icons, #reply {
+    text-align: center;
+    margin-left: auto;
+    margin-left: auto;    
 }
 
 #nav-bar {
@@ -69,32 +100,11 @@ p {
     margin-right: 20px;
 }
 
-#diagram {
-    border: solid olive 2px;
-}
-
-#icons {
-    text-align: center;
-    margin-left: auto;
-    margin-left: auto;
-}
-
 #repeat {
     text-align: right;
 }
 
-#rock:hover {
-    border: solid red 5px;
-}
-
-#well:hover {
-    border: solid red 5px;
-}
-
-#scissors:hover {
-    border: solid red 5px;
-}
-
-#paper:hover {
-    border: solid red 5px;
+#total {
+    text-align: center;
+    font-size: 3rem;
 }
