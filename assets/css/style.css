@@ -16,7 +16,7 @@ footer {
     max-width: 720px;
 }
 
-h1, h2 {
+h1, h2, h5 {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -27,6 +27,11 @@ h4 {
     padding-bottom: 20px;
     color:greenyellow;
     font-family: 'Courier New', Courier, monospace;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 img {
@@ -50,20 +55,25 @@ p {
     text-shadow: 1px 1px;
 }
 
+span {
+    padding-left: 20px;
+    font-size: larger;
+}
+
 summary {    
     font-size: 1.5rem;
     margin-left: 20px;
 }
 
 svg {
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
     border: solid olive 3px;
     border-radius: 10px;
 }
 
 svg:hover {
-    border: solid red 5px;
+    border-bottom: solid red 10px;
 }
 
 
@@ -77,6 +87,13 @@ label, #game-length {
     border: solid olive 2px;
 }
 
+#draw {
+    font-size: 1.2rem;
+    background-color: darkolivegreen;
+    color: beige;
+    text-align: right;
+}
+
 #game-length {
     background-color: darkblue;
     color: white;
@@ -86,6 +103,13 @@ label, #game-length {
     text-align: center;
     margin-left: auto;
     margin-left: auto;    
+}
+
+#lost {
+    font-size: 1.2rem;
+    background-color: brown;
+    color: beige;
+    text-align: right;
 }
 
 #nav-bar {
@@ -104,7 +128,24 @@ label, #game-length {
     text-align: right;
 }
 
+#reply1 svg {
+    border: sold darkorange 4px;
+    width: 90px;
+    height: 80px;
+}
+
+#reply1 svg:hover {
+    border-bottom: solid olive 5px;
+}
+
 #total {
     text-align: center;
     font-size: 3rem;
+}
+
+#won {
+    font-size: 1.2rem;
+    background-color: darkblue;
+    color: beige;
+    text-align: right;
 }
