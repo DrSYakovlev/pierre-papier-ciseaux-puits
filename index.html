@@ -23,9 +23,9 @@
     <details>
         <summary title="Click to expand/collapse the game rules."><b>RULES</b></summary>
         <p>"Pierre", "papier", "ciseaux", "puits" is a French version of a tradition game. It includes the forth component - "well" ("puits" <em>French</em>). The picture show a wining diagram for the elements in the French version of the game.</p>
-        <p>Nothe that in this layout the game is unbalanced. "Well"(in grey) and "paper" now beat two other elements out of three.</p>
-        <p>Therefore, you can use each weapon just once and make three moves in a game.</p>
-        <p>Slect the number of games from "Best out of three", "Best out of five" and "Best out of ten" options.</p>
+        <p>Note that in this layout the game is unbalanced. "Well"(in grey) and "paper" now beat two other elements out of three.</p>
+        <p>You can get back to a traditional version of the game and remove the "well" weapon.</p>
+        <p>Slect the number of rounds from "Best out of three", "Best out of five" and "Best out of ten" options.</p>
         <br>
         <img src="./assets/images/pierre-papier-ciseaux-puit.png" alt="Rock-paper-scisors-well game hand gestures priority" title="Rock-paper-scisors-well game hand gestures priority" id="diagram">
     </details>    
@@ -38,6 +38,9 @@
         <option value="5">Five</option>
         <option value="10">Ten</option>
     </select>
+    <br>
+    <label for="remove-well">Remove the "Well" weapon?</label>
+    <input type="radio" id="remove-well">    
     <h2>What is your move?</h2>
 
     <!--Group of playint icons-->
@@ -64,6 +67,12 @@
     <div id="reply">
     <span id="reply1"></span>    
     </div>    
+    <div>
+        <span>Rounds played: </span>
+        <span id="rounds-played">0</span>
+    </div>
+    <br>
+    <br>
     <details title="Live results. Updated as you go.">
         <summary>Live results:</summary>
         <div id="result">            
@@ -71,7 +80,6 @@
     </details>
     <br>
     <br>
-
     <span>
         <span>Won: </span>
         <span id="won">0</span>
@@ -84,6 +92,7 @@
         <span>Draw: </span>
         <span id="draw">0</span>
     </span>
+    
     <!--Final result reported:-->
     <h2><em>TOTAL:</em></h2>
     <h1 id="total"></h1>

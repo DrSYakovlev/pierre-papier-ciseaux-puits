@@ -1,9 +1,8 @@
 //Declare variables:
-const reply = ['rock', 'paper','scissors','well'];
+let reply = ['rock', 'paper','scissors','well'];
 let currentReply;
 let count = 0;
 let number;
-let score = 0;
 let won = 0;
 let lost = 0;
 let draw = 0;
@@ -22,46 +21,52 @@ document.getElementById('rock').addEventListener('click', myRock);
 document.getElementById('paper').addEventListener('click', myPaper);
 document.getElementById('scissors').addEventListener('click', myScissors);
 document.getElementById('well').addEventListener('click', myWell);
-//document.getElementById('rock').addEventListener('click', myCount);
-//document.getElementById('paper').addEventListener('click', myCount);
-//document.getElementById('scissors').addEventListener('click', myCount);
-//document.getElementById('well').addEventListener('click', myCount);
+document.getElementById('rock').addEventListener('click', myCount);
+document.getElementById('paper').addEventListener('click', myCount);
+document.getElementById('scissors').addEventListener('click', myCount);
+document.getElementById('well').addEventListener('click', myCount);
 document.getElementById('repeat').addEventListener('click', finishedReload);
+document.getElementById('remove-well').addEventListener('click', removeWell);
 
 //Declare functions
 function gameNumber () {
     number = document.getElementById('game-length').value;
     document.getElementById('game-length').disabled = true;
-    number = parseInt(number);    
-} 
+    number = parseInt(number);
+}
 
-function myRock() {    
+function removeWell() {
+    document.getElementById('well').remove();
+    reply = ['rock', 'paper','scissors'];
+}
+
+function myRock() { 
     currentReply = reply[(Math.floor(Math.random() * reply.length))];
     const node = document.createElement('h5');
     if (currentReply === 'rock') {
         document.getElementById('reply1').innerHTML = replyRock;
-        const textnode = document.createTextNode('Replied: ROCK. DRAW');
+        const textnode = document.createTextNode('Played: ROCK, Replied: ROCK. DRAW');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
         draw++;
         document.getElementById('draw').innerHTML = draw;
     } else if (currentReply === 'scissors') {
         document.getElementById('reply1').innerHTML = replyScissors;
-        const textnode = document.createTextNode('Replied: SCISSORS. You WON!');
+        const textnode = document.createTextNode('Played: ROCK, Replied: SCISSORS. You WON!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
         won++;
         document.getElementById('won').innerHTML = won;
     } else if (currentReply === 'paper') {
         document.getElementById('reply1').innerHTML = replyPaper;
-        const textnode = document.createTextNode('Replied: PAPER. You LOST!');
+        const textnode = document.createTextNode('Played: ROCK, Replied: PAPER. You LOST!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
         lost++;
         document.getElementById('lost').innerHTML = lost;
     } else {
         document.getElementById('reply1').innerHTML = replyWell;
-        const textnode = document.createTextNode('Replied: WELL. You LOST!');
+        const textnode = document.createTextNode('Played: ROCK, Replied: WELL. You LOST!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);        
         lost++;
@@ -74,38 +79,33 @@ function myPaper() {
     const node = document.createElement('h5');
     if (currentReply === 'paper') {
         document.getElementById('reply1').innerHTML = replyPaper;
-        const textnode = document.createTextNode('Replied: PAPER. DRAW');
+        const textnode = document.createTextNode('Played: PAPER, Replied: PAPER. DRAW');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
-        score = 0;
         draw++;
         document.getElementById('draw').innerHTML = draw;
     } else if (currentReply === 'scissors') {
         document.getElementById('reply1').innerHTML = replyScissors;
-        const textnode = document.createTextNode('Replied: SCISSORS. You LOST!');
+        const textnode = document.createTextNode('Played: PAPER, Replied: SCISSORS. You LOST!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
-        score = -1;
         lost++;
         document.getElementById('lost').innerHTML = lost;
     } else if (currentReply === 'rock') {
         document.getElementById('reply1').innerHTML = replyRock;
-        const textnode = document.createTextNode('Replied: ROCK. You WON!');
+        const textnode = document.createTextNode('Played: PAPER, Replied: ROCK. You WON!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
-        score = 1;
         won++;
         document.getElementById('won').innerHTML = won;
     } else {
         document.getElementById('reply1').innerHTML = replyWell;
-        const textnode = document.createTextNode('Replied: WELL. You WON!');
+        const textnode = document.createTextNode('Played: PAPER, Replied: WELL. You WON!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
-        score = 1;
         won++;
         document.getElementById('won').innerHTML = won;
-    }
-    console.log(score);
+    }    
 }
 
 function myScissors() {    
@@ -113,114 +113,101 @@ function myScissors() {
     const node = document.createElement('h5');
     if (currentReply === 'scissors') {
         document.getElementById('reply1').innerHTML = replyScissors;
-        const textnode = document.createTextNode('Replied: SCISSORS. DRAW');
+        const textnode = document.createTextNode('Played: SCISSORS, Replied: SCISSORS. DRAW');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
-        score = 0;
         draw++;
         document.getElementById('draw').innerHTML = draw;
     } else if (currentReply === 'rock') {
         document.getElementById('reply1').innerHTML = replyRock;
-        const textnode = document.createTextNode('Replied: ROCK. You LOST!');
+        const textnode = document.createTextNode('Played: SCISSORS, Replied: ROCK. You LOST!');
         node.appendChild(textnode);
         document.getElementById('result').appendChild(node);
-        score = -1;
         lost++;
         document.getElementById('lost').innerHTML = lost;
     } else if (currentReply === 'paper') {
         document.getElementById('reply1').innerHTML = replyPaper;
-        const textnode = document.createTextNode('Replied: PAPER. You WON!');
+        const textnode = document.createTextNode('Played: SCISSORS, Replied: PAPER. You WON!');
         node.appendChild(textnode);
-        document.getElementById('result').appendChild(node);
-        score = 1;
+        document.getElementById('result').appendChild(node);        
     } else {
         document.getElementById('reply1').innerHTML = replyWell;
-        const textnode = document.createTextNode('Replied: WELL. You LOST!');
+        const textnode = document.createTextNode('Played: SCISSORS, Replied: WELL. You LOST!');
         node.appendChild(textnode);
-        document.getElementById('result').appendChild(node);
-        score = -1;
+        document.getElementById('result').appendChild(node);        
         lost++;
         document.getElementById('lost').innerHTML = lost;
-    }
-    console.log(score);
+    }    
 }
 
 function myWell() {
-    let score = 0;
+    //let score = 0;
     currentReply = reply[(Math.floor(Math.random() * reply.length))];
     const node = document.createElement('h5');
     if (currentReply === 'well') {
         document.getElementById('reply1').innerHTML = replyWell;
-        const textnode = document.createTextNode('Replied: WELL. DRAW');
+        const textnode = document.createTextNode('Played WELL, Replied: WELL. DRAW');
         node.appendChild(textnode);
-        document.getElementById('result').appendChild(node);
-        score = 0;
+        document.getElementById('result').appendChild(node);        
         draw++;
         document.getElementById('draw').innerHTML = draw;
     } else if (currentReply === 'rock') {
         document.getElementById('reply1').innerHTML = replyRock;
-        const textnode = document.createTextNode('Replied: ROCK. You WON!');
+        const textnode = document.createTextNode('Played WELL, Replied: ROCK. You WON!');
         node.appendChild(textnode);
-        document.getElementById('result').appendChild(node);
-        score = 1;
+        document.getElementById('result').appendChild(node);        
         won++;
         document.getElementById('won').innerHTML = won;
     } else if (currentReply === 'paper') {
         document.getElementById('reply1').innerHTML = replyScissors;
-        const textnode = document.createTextNode('Replied: PAPER. You LOST!');
+        const textnode = document.createTextNode('Played WELL, Replied: PAPER. You LOST!');
         node.appendChild(textnode);
-        document.getElementById('result').appendChild(node);
-        score = -1;
+        document.getElementById('result').appendChild(node);        
     } else {
         document.getElementById('reply1').innerHTML = replyScissors;
-        const textnode = document.createTextNode('Replied: SCISSORS. You WON!');
+        const textnode = document.createTextNode('Played WELL, Replied: SCISSORS. You WON!');
         node.appendChild(textnode);
-        document.getElementById('result').appendChild(node);
-        score = 1;
+        document.getElementById('result').appendChild(node);        
         won++;
         document.getElementById('won').innerHTML = won;
-    }
-    console.log(score);
+    }    
 }
-
-/*
 
 function myCount() {
+    if (number === undefined) {
+        alert('Select number of rounds');
+        location.reload();
+        }    
     count++;
-    //console.log(count);
-    //console.log(number);
-    //console.log(score);
-    if (count <= number) {
-        if (score = -1) {
-            document.getElementById('total').innerHTML = 'You LOST';
-            document.getElementById ('total').style.color = 'red';
-            lost++;            
-            document.getElementById('lost').innerHTML = lost;
-        } else if (score = 0) {
+    document.getElementById('rounds-played').innerHTML = count;
+    console.log(number);
+    if (count === number) {        
+        if (lost === won) {
             document.getElementById('total').innerHTML = 'DRAW';
             document.getElementById ('total').style.color = 'olive';
-            draw++;
-            document.getElementById('draw').innerHTML = draw;
-        } else if (score = 1) {
+        } else if (lost > won) {
+            document.getElementById('total').innerHTML = 'You LOST';
+            document.getElementById ('total').style.color = 'brown';
+        } else {
             document.getElementById('total').innerHTML = 'You WON!';
-            document.getElementById ('total').style.color = 'blue';
-            won++;
-            console.log(won);
-            document.getElementById('won').innerHTML = won;
-        }        
+            document.getElementById ('total').style.color = 'darkblue';
+        }    
     } else if (count > number) {
-       //console.log(count);
-
+        location.reload();
     }
 }
-*/
 
 function finishedReload () {
     alert('Current score will be lost');
     location.reload();
 }
 
-alert('First select the number of rounds');
+//alert('First select the number of rounds');
+
+
+
+
+
 
 
 

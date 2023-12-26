@@ -124,6 +124,10 @@ label, #game-length {
     margin-right: 20px;
 }
 
+#remove-well {
+    margin-left: 55px;
+}
+
 #repeat {
     text-align: right;
 }
