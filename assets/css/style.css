@@ -51,7 +51,7 @@ p {
     padding-right: 20px;
     text-align: justify;
     text-justify: inter-word;
-    font-size:x-large;
+    font-size:larger;
     text-shadow: 1px 1px;
 }
 
@@ -94,9 +94,10 @@ label, #game-length {
     text-align: right;
 }
 
-#game-length {
+#game-length, #remove-well {
     background-color: darkblue;
     color: white;
+    font-size: larger;
 }
 
 #icons, #reply {
@@ -119,13 +120,13 @@ label, #game-length {
     padding-bottom: 10px;
 }
 
-#nav-bar-item {
+.nav-bar-item {
     display: inline-block;
     margin-right: 20px;
 }
 
-#remove-well {
-    margin-left: 55px;
+#remove-well{
+    margin-left: 20px;
 }
 
 #repeat {
@@ -133,13 +134,17 @@ label, #game-length {
 }
 
 #reply1 svg {
-    border: sold darkorange 4px;
+    border: solid darkorange 4px;
     width: 90px;
     height: 80px;
 }
 
 #reply1 svg:hover {
     border-bottom: solid olive 5px;
+}
+
+#rock, #paper, #scissors, #well, #repeat {
+    cursor: pointer;
 }
 
 #total {

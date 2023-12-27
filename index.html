@@ -3,83 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=720, initial-scale=1.0">
-    <title>Pierre-Papier-Ciseaux-Puits</title>
+    <title>Rock-Paper-Scisors-Well</title>
     <link rel="icon" type="image/svg+xml" href="./assets/images/hand-fist-solid.svg">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <!--Top navigation bar:-->
     <nav>
         <ol id="nav-bar">
-            <li id="nav-bar-item">
+            <li class="nav-bar-item">
                 <a href="https://wrpsa.com/about/" title="World Rock Paper Scissors Association, (WRPSA)" target="_blank"><b>WRPSA</b></a>
             </li>
-            <li id="nav-bar-item">
+            <li class="nav-bar-item">
                 <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" title="Wiki article" target="_blank"><b>Wiki</b></a>
             </li>            
         </ol>
     </nav>
-    <h1>"ROCK", "PAPER", "SCISSORS", "WELL":</h1>
-    <h2>The game that is always with you</h2>
+    <h1>"ROCK", "PAPER", "SCISSORS", "WELL"</h1>
+    <!--Expandable/collapsable rules of the game:-->
     <details>
         <summary title="Click to expand/collapse the game rules."><b>RULES</b></summary>
-        <p>"Pierre", "papier", "ciseaux", "puits" is a French version of a tradition game. It includes the forth component - "well" ("puits" <em>French</em>). The picture show a wining diagram for the elements in the French version of the game.</p>
+        <p>"Pierre", "papier", "ciseaux", "puits" is a French version of a tradition game. It includes the forth weapon - "well" ("puits" <em>French</em>). The picture shows a winning diagram for the weapons.</p>
         <p>Note that in this layout the game is unbalanced. "Well"(in grey) and "paper" now beat two other elements out of three.</p>
-        <p>You can get back to a traditional version of the game and remove the "well" weapon.</p>
+        <p>You can get back to a traditional version of the game and remove the "well" weapon but it is strongly recommended not to do so during the game.</p>
         <p>Slect the number of rounds from "Best out of three", "Best out of five" and "Best out of ten" options.</p>
+        <p>Expand the live results section to see the previous rounds.</p>
         <br>
         <img src="./assets/images/pierre-papier-ciseaux-puit.png" alt="Rock-paper-scisors-well game hand gestures priority" title="Rock-paper-scisors-well game hand gestures priority" id="diagram">
     </details>    
     <br>
     <h2>PLAY</h2>
-    <label for="game-length">Select the number of rounds</label>    
-    <select id="game-length" onchange="gameNumber()">
-        <option value="0"></option>
-        <option value="3">Three</option>
-        <option value="5">Five</option>
-        <option value="10">Ten</option>
+    <!--Select the number of rounds. Required field:-->
+    <div>
+        <select id="game-length" title="Select the number of rounds" onchange="gameNumber()">
+            <option value="0">Select number of rounds:</option>
+            <option value="3">Three</option>
+            <option value="5">Five</option>
+            <option value="10">Ten</option>
     </select>
+    </div>
     <br>
-    <label for="remove-well">Remove the "Well" weapon?</label>
-    <input type="radio" id="remove-well">    
+    <!--Remove the "well" weapon and play the traditional rock-paper-scissors game (optional):-->
+    <div>
+        <button id="remove-well" title="Remove WEll option" onclick="removeWell()">Remove "Well"</button>
+    </div>    
     <h2>What is your move?</h2>
-
-    <!--Group of playint icons-->
-
+    <!--Group of playing icons:-->
     <div id="icons">
         <span id="rock" title="Rock">
             <svg xmlns="http://www.w3.org/2000/svg" height="32" width="36" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M252.4 103.8l27 48c2.8 5 8.2 8.2 13.9 8.2l53.3 0c5.8 0 11.1-3.1 13.9-8.2l27-48c2.7-4.9 2.7-10.8 0-15.7l-27-48c-2.8-5-8.2-8.2-13.9-8.2H293.4c-5.8 0-11.1 3.1-13.9 8.2l-27 48c-2.7 4.9-2.7 10.8 0 15.7zM68.3 87C43.1 61.8 0 79.7 0 115.3V432c0 44.2 35.8 80 80 80H396.7c35.6 0 53.5-43.1 28.3-68.3L68.3 87zM504.2 403.6c4.9 2.7 10.8 2.7 15.7 0l48-27c5-2.8 8.2-8.2 8.2-13.9V309.4c0-5.8-3.1-11.1-8.2-13.9l-48-27c-4.9-2.7-10.8-2.7-15.7 0l-48 27c-5 2.8-8.2 8.2-8.2 13.9v53.3c0 5.8 3.1 11.1 8.2 13.9l48 27zM192 64a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM384 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
         </span>
-
         <span id="paper" title="Paper">
             <svg xmlns="http://www.w3.org/2000/svg" height="32" width="36" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 80v48c0 17.7 14.3 32 32 32H48 96V80c0-26.5-21.5-48-48-48S0 53.5 0 80zM112 32c10 13.4 16 30 16 48V384c0 35.3 28.7 64 64 64s64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H480V128c0-53-43-96-96-96H112zM464 480c61.9 0 112-50.1 112-112c0-8.8-7.2-16-16-16H314.7c-14.7 0-26.7 11.9-26.7 26.7V384c0 53-43 96-96 96H368h96z"/></svg>
         </span>
-
         <span id="scissors" title="Scissors">
             <svg xmlns="http://www.w3.org/2000/svg" height="32" width="36" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 192l-39.5-39.5c4.9-12.6 7.5-26.2 7.5-40.5C224 50.1 173.9 0 112 0S0 50.1 0 112s50.1 112 112 112c14.3 0 27.9-2.7 40.5-7.5L192 256l-39.5 39.5c-12.6-4.9-26.2-7.5-40.5-7.5C50.1 288 0 338.1 0 400s50.1 112 112 112s112-50.1 112-112c0-14.3-2.7-27.9-7.5-40.5L499.2 76.8c7.1-7.1 7.1-18.5 0-25.6c-28.3-28.3-74.1-28.3-102.4 0L256 192zm22.6 150.6L396.8 460.8c28.3 28.3 74.1 28.3 102.4 0c7.1-7.1 7.1-18.5 0-25.6L342.6 278.6l-64 64zM64 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm48 240a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
         </span>
-
         <span id="well" title="Well">
             <svg xmlns="http://www.w3.org/2000/svg" height="32" width="36 " viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M528.3 61.3c-11.4-42.7-55.3-68-98-56.6L414.9 8.8C397.8 13.4 387.7 31 392.3 48l24.5 91.4L308.5 167.5l-6.3-18.1C297.7 136.6 285.6 128 272 128s-25.7 8.6-30.2 21.4l-13.6 39L96 222.6V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H544c17.7 0 32-14.3 32-32s-14.3-32-32-32H406.7L340 257.5l-62.2 16.1L305.3 352H238.7L265 277l-74.6 19.3L137.3 448H96V288.8l337.4-87.5 25.2 94c4.6 17.1 22.1 27.2 39.2 22.6l15.5-4.1c42.7-11.4 68-55.3 56.6-98L528.3 61.3zM205.1 448l11.2-32H327.7l11.2 32H205.1z"/></svg>
         </span>
     </div>
 
+    <!--Reply section: played by your pc-->
     <h2>Reply</h2>
     <div id="reply">
     <span id="reply1"></span>    
     </div>    
+    <!--Counter of played rounds:-->
     <div>
         <span>Rounds played: </span>
         <span id="rounds-played">0</span>
     </div>
     <br>
     <br>
-    <details title="Live results. Updated as you go.">
+    <!--Expandable/collapsible log of the results in a game:-->
+    <details title="Live results. Click to expand/collapse. Updated as you go.">
         <summary>Live results:</summary>
         <div id="result">            
         </div>
     </details>
     <br>
     <br>
+    <!--Live score:-->
     <span>
         <span>Won: </span>
         <span id="won">0</span>
@@ -95,11 +100,12 @@
     
     <!--Final result reported:-->
     <h2><em>TOTAL:</em></h2>
-    <h1 id="total"></h1>
-
+    <h1 id="total">-:-</h1>
+    <!--reset button:-->
     <div id="repeat">
         <svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 224c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96H320v32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9S320 19.1 320 32V64H160C71.6 64 0 135.6 0 224zm512 64c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 53-43 96-96 96H192V352c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V448H352c88.4 0 160-71.6 160-160z"/></svg>
-    </div>    
+    </div>
+    <!--Footer:-->
     <footer>
         <h4>By DrSYakovlev</h4>
     </footer>
