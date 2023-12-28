@@ -12,7 +12,7 @@ In this version, two elements ("Well" and "Paper") win against two weapons. This
 
 ### Header
 
-In the header shows the title of the project and the top navbar where you will find external kinks to the WRPSA (World Rock Paper Scissors Association) and an article on Wikipedia if you wand to learn more about different variants of the game.
+In the header shows the title of the project and the top navbar where you will find external links to the WRPSA (World Rock Paper Scissors Association) and an article on Wikipedia if you wand to learn more about different variants of the game.
 
 ![Rules-layout](./assets/images/features-header.png "Rules-layout")
 
