@@ -16,7 +16,13 @@ footer {
     max-width: 720px;
 }
 
-h1, h2, h5 {
+h1 {text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+}
+
+h2, h5 {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -57,7 +63,7 @@ p {
 
 span {
     padding-left: 20px;
-    font-size: larger;    
+    font-size: larger;       
 }
 
 summary {    
@@ -160,8 +166,14 @@ details, select, #rock, #paper, #scissors, #well, #remove-well {
 }
 
 /*Media query*/
-      @media only screen and (max-width: 500px) {
+      @media only screen and (max-width: 680px) {
         h1 {          
-          font-size: 1.35rem;
+          font-size: 3rem;
+        }
+      }
+
+      @media only screen and (max-width: 520px) {
+        h1 {          
+          font-size: 2rem;
         }
       }
