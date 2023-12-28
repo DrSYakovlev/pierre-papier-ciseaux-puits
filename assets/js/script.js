@@ -1,5 +1,5 @@
 //Declare variables:
-let reply = ['rock', 'paper','scissors','well']; //All possivle move by pc
+const reply = ['rock', 'paper','scissors','well']; //All possible moves by pc
 let currentReply; //Randomly selected reply by pc for the current move
 let count = 0; //Number of played rounds
 let number; //Number of rounds in a game (required, selected from 3, 5 and 10)
